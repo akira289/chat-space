@@ -21,7 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* Database design
+# Database design
 ## users table
 |Column|Type|Options|
 |------|----|-------|
