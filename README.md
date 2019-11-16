@@ -54,7 +54,7 @@ Things you may want to cover:
 ## messages table
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text||
 |image|string||
 |use_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
