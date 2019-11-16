@@ -29,7 +29,7 @@ Things you may want to cover:
 |password|string|null: false|
 |name|string|null: false|
 ### Association
-- has_many :massages
+- has_many :messages
 - has_many :groups, through: :groups_users
 
 ## groups table
