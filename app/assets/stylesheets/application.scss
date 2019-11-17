@@ -35,8 +35,11 @@
   }
   &__contents {
     height: calc(100vh - 88px);
+    width: 260px;
     background-color: #2f3e51;
     padding: 20px + 88px 20px 0;
+    position: fixed;
+    top: 88px;
   }
   &__group-list {
     list-style: none;
