@@ -7,33 +7,36 @@
   height: 100vh;
   &__header {
     background-color: #253141;
-    height: 67px;
+    height: 88px;
+    width: 260px;
     display: flex;
     justify-content: space-between;
     padding: 0 20px 0;
+    position: fixed;
+    top: 0;
     &--left {
-      height: 67px;
+      height: 88px;
       text-decoration: none;
       font-size: 16px;
       color: #ffffff;
-      line-height: 67px;
+      line-height: 88px;
       font-weight: bold;
     }
     &--right {
-      height: 67px;
+      height: 88px;
       display: flex;
       &-icon {
         text-decoration: none;
         font-size: 16px;
         color: #ffffff;
-        line-height: 67px;
+        line-height: 82px;
       }
     }
   }
   &__contents {
-    height: calc(100vh - 67px);
+    height: calc(100vh - 88px);
     background-color: #2f3e51;
-    padding: 20px 20px 0;
+    padding: 20px + 88px 20px 0;
   }
   &__group-list {
     list-style: none;
