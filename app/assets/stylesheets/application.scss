@@ -117,4 +117,41 @@
       }
     }
   }
+  &__form {
+    width: calc(100vw - 300px - 40px * 2);
+    padding: 20px 40px;
+    background-color: #ddd;
+    position: fixed;
+    bottom: 0;
+    left: 300px;
+    display: flex;
+    // justify-content: space-between;
+    &--message {
+      height: 50px;
+      width: 100%;
+      font-size: 16px;
+      color: #434a54;
+      line-height: 50px;
+      padding-left: 10px;
+      border: none;
+    }
+    &--image {
+      position: relative;
+      top: 14px;
+      right: 32px;
+      font-size: 22px;
+      margin-right: -32px;
+    }
+    &--hidden {
+      display: none;
+    }
+    &--send-btn {
+      background-color: #38aef0;
+      height: 50px;
+      width: 90px;
+      border: none;
+      color: #ffffff;
+      margin-left: 25px;
+    }
+  }
 }
