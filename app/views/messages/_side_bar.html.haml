@@ -1,0 +1,23 @@
+.sidebar
+  .header
+    .header__left
+      user name
+    .header__right
+      = link_to "#", class: "header__right--icon" do
+        = icon('fas', 'edit')
+      = link_to "#", class: "header__right--icon" do
+        = icon('fas', 'cog')
+  .contents
+    %ul.group
+      %li
+        = link_to "#", class: "group__list" do
+          .group__list--name
+            test1
+          .group__list--message
+            まだメッセージはありません
+      %li
+        = link_to "#", class: "group__list" do
+          .group__list--name
+            test2
+          .group__list--message
+            まだメッセージはありません
