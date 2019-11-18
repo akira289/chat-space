@@ -5,6 +5,7 @@
 .side-bar {
   width: 300px;
   height: 100vh;
+  float: left;
   &__header {
     background-color: #253141;
     height: 88px;
@@ -12,8 +13,8 @@
     display: flex;
     justify-content: space-between;
     padding: 0 20px 0;
-    position: fixed;
-    top: 0;
+    // position: fixed;
+    // top: 0;
     &--left {
       height: 88px;
       text-decoration: none;
@@ -34,12 +35,12 @@
     }
   }
   &__contents {
-    height: calc(100vh - 88px);
+    height: calc(100vh - 88px - 15px);
     width: 260px;
     background-color: #2f3e51;
-    padding: 20px + 88px 20px 0;
-    position: fixed;
-    top: 88px;
+    padding: 20px 20px 0;
+    // position: fixed;
+    // top: 88px;
   }
   &__group-list {
     list-style: none;
@@ -58,12 +59,14 @@
 }
 .main-chat {
   height: 100vh;
+  // width: calc(100vw - 300px);
+  float: right;
   &__header {
-    width: calc(100% - 300px - 40px * 2);
+    width: calc(100vw - 300px - 40px * 2);
     border-bottom: 1px solid #eeeeee;
-    position: fixed;
-    top: 0;
-    left: 300px;
+    // position: fixed;
+    // top: 0;
+    // left: 300px;
     display: flex;
     justify-content: space-between;
     padding: 0 40px 0;
@@ -88,12 +91,12 @@
     }
   }
   &__message {
-    width: calc(100% - 300px - 40px * 2);
-    height: calc(100vh - 88px);
+    width: calc(100vw - 300px - 40px * 2);
+    height: calc(100vh - 88px - 70px - 15px);
     background-color: #fafafa;
-    position: fixed;
-    top: 88px;
-    left: 300px;
+    // position: fixed;
+    // top: 88px;
+    // left: 300px;
     display: flex;
     justify-content: space-between;
     padding: 0 40px 0;
@@ -121,9 +124,9 @@
     width: calc(100vw - 300px - 40px * 2);
     padding: 20px 40px;
     background-color: #ddd;
-    position: fixed;
-    bottom: 0;
-    left: 300px;
+    // position: fixed;
+    // bottom: 0;
+    // left: 300px;
     display: flex;
     // justify-content: space-between;
     &--message {
