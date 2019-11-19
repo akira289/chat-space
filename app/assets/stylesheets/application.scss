@@ -5,7 +5,7 @@
 @import "./config/variables";
 @import "./mixin/mixin";
 
-.side-bar {
+.side_bar {
   height: 100vh;
   float: left;
 }
@@ -52,85 +52,84 @@
   }
 }
 
-.main-chat {
+.main {
+  &_chat {
   height: 100vh;
   float: right;
-  &__header {
-    @include main-chat;
+  }
+  &_header {
+    @include main_chat;
     justify-content: space-between;
-    border-bottom: 1px solid $main-chat-bgc1;
-    &--group-name {
-      font-size: 20px;
-      color: $main-chat-color1;
-      padding-top: 35px;
+    border-bottom: 1px solid $main_header_border;
+    &__group {
+      &_name {
+      font-size: $main_group_name_font;
+      color: $main_dark_color;
+      padding-top: $main_group_name_padding;
+      }
+      &_member {
+      font-size: $main_member_font;
+      color: $main_light_color;
+      padding-top: $main_member_padding;
+      }
     }
-    &--group-member {
-      font-size: 12px;
-      color: $main-chat-color2;
-      padding-top: 15px;
-    }
-    &--group-edit-btn {
-      $height: 40px;
-      @include button($height);
-      margin-top: ($header_height - $height)/2;
+    &__btn {
+      @include button($edit_btn_height);
+      margin-top: ($header_height - $edit_btn_height)/2;
     }
   }
-  &__message {
-    @include main-chat;
-    height: calc(#{$contents_height} - #{$form-height});
-    background-color: $main-chat-bgc1;
-    &--header {
-      $left-margin: 10px;
-      margin-top: 40px;
-      display: flex;
-      &-user {
-        font-size: 16px;
+  &_message {
+    height: calc(#{$contents_height} - #{$form_height});
+    background-color: $main_message_bgc;
+    &__header {
+      @include main_chat;
+      padding-top: $main_message_padding;
+      &_user {
+        font-size: $main_user_font;
         font-style: bold;
-        color: $main-chat-color3;
+        color: $main_mid_color;
       }
-      &-date {
-        font-size: 12px;
-        color: $main-chat-color2;
-        margin-left: $left-margin;
+      &_date {
+        font-size: $main_date_font;
+        color: $main_light_color;
+        margin-left: $main_date_margin;
       }
-      &-message {
-        font-size: 14px;
-        color: $main-chat-color3;
-        margin-left: $left-margin;
-      }
+    }
+    &__message {
+        font-size: $main_message_font;
+        color: $main_mid_color;
+        padding-left: $main_padding;
     }
   }
-  &__form {
-    @include main-chat;
-    padding: $form-padding $main-chat-padding;
-    background-color: $main-chat-bgc2;
-    &--message {
-      height: $form-height - $form-padding * 2;
+  &_form {
+    @include main_chat;
+    padding: $form_padding $main_padding;
+    background-color: $form_bgc;
+    &__input {
+      height: $form_height - $form_padding * 2;
       width: 100%;
-      font-size: 16px;
-      color: $main-chat-color3;
-      line-height: $form-height - $form-padding * 2;
-      padding-left: 10px;
+      font-size: $form_input_font;
+      color: $main_mid_color;
+      line-height: $form_height - $form_padding * 2;
+      padding-left: $form_input_padding;
       border: none;
     }
-    &--image {
-      $icon-size: 22px;
-      $margin: 10px;
+    &__image {
+      font-size: $form_icon_size;
       position: relative;
-      top: ($form-height - $form-padding * 2 - $icon-size)/2;
-      right: $icon-size + $margin;
-      font-size: $icon-size;
-      margin-right: -($icon-size + $margin);
+      top: ($form_height - $form_padding * 2 - $form_icon_size)/2;
+      right: $form_icon_size + $form_icon_margin;
+      margin-right: -($form_icon_size + $form_icon_margin);
+      &--hidden {
+        display: none;
+      }
     }
-    &--hidden {
-      display: none;
-    }
-    &--send-btn {
-      @include button($form-height - $form-padding * 2);
-      background-color: $btn-color1;
+    &__btn {
+      @include button($form_height - $form_padding * 2);
+      background-color: $btn_color1;
       border: none;
-      color: $btn-color2;
-      margin-left: 25px;
+      color: $btn_color2;
+      margin-left: $form_send_btn_margin;
     }
   }
 }

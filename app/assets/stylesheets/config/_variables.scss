@@ -1,24 +1,46 @@
-$side_bar_width: 300px;
-$main-chat-width: calc(100vw - #{$side_bar_width});
-$side_bar_padding: 20px;
-$main-chat-padding: 40px;
 $header_height: 88px;
 $contents_height: calc(100vh - #{$header_height});
-$group_list_padding: 20px;
-$form-height: 90px;
-$form-padding: 20px;
+
+$side_bar_width: 300px;
+$side_bar_padding: 20px;
 $side_bar_color: #ffffff;
-$main-chat-color1: #333333;
-$main-chat-color2: #999999;
-$main-chat-color3: #434a54;
-$btn-color1: #38aef0;
-$btn-color2: #ffffff;
-$side_header_bgc: #253141;
-$group_list_bgc: #2f3e51;
-$main-chat-border: #eeeeee;
-$main-chat-bgc1: #fafafa;
-$main-chat-bgc2: #ddd;
+
+$main_width: calc(100vw - #{$side_bar_width});
+$main_padding: 40px;
+$main_dark_color: #333333;
+$main_mid_color: #434a54;
+$main_light_color: #999999;
+
 $side_header_font: 16px;
+$side_header_bgc: #253141;
+
+$group_list_padding: 20px;
 $group_list_name_font: 15px;
 $group_list_message_font: 11px;
+$group_list_bgc: #2f3e51;
 
+$main_header_border: #eeeeee;
+$main_group_name_font: 20px;
+$main_group_name_padding: 35px;
+$main_member_font: 12px;
+$main_member_padding: 15px;
+
+$main_user_font: 16px;
+$main_date_margin:10px;
+$main_date_font:12px;
+$main_message_font: 14px;
+$main_message_bgc: #fafafa;
+$main_message_padding: 40px;
+
+$form_bgc: #ddd;
+$form_input_font: 16px;
+$form_icon_size: 22px;
+$form_icon_margin: 10px;
+$form_send_btn_margin: 25px;
+$form_input_padding: 10px;
+$form_height: 90px;
+$form_padding: 20px;
+
+$btn-color1: #38aef0;
+$btn-color2: #ffffff;
+$edit_btn_height: 40px;
