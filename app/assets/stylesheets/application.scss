@@ -2,51 +2,75 @@
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 
+$side-bar-width: 300px;
+$main-chat-width: calc(100vw - #{$side-bar-width});
+$side-bar-padding: 20px;
+$main-chat-padding: 40px;
+$header-height: 88px;
+$contents-height: calc(100vh - #{$header-height});
+$contents-padding: 20px;
+$form-height: 90px;
+$form-padding: 20px;
+$side-bar-color1: #ffffff;
+$main-chat-color1: #333333;
+$main-chat-color2: #999999;
+$main-chat-color3: #434a54;
+$btn-color1: #38aef0;
+$btn-color2: #ffffff;
+$side-bar-bgc1: #253141;
+$side-bar-bgc2: #2f3e51;
+$main-chat-border: #eeeeee;
+$main-chat-bgc1: #fafafa;
+$main-chat-bgc2: #ddd;
+
+@mixin button($height) {
+  height: $height;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid $btn-color1;
+  color: $btn-color1;
+}
+@mixin main-chat {
+  width: calc(#{$main-chat-width} - #{$main-chat-padding} * 2);
+  padding: 0 $main-chat-padding 0;
+  display: flex;
+}
 .side-bar {
-  width: 300px;
+  width: $side-bar-width;
   height: 100vh;
   float: left;
   &__header {
-    background-color: #253141;
-    height: 88px;
-    width: 260px;
+    background-color: $side-bar-bgc1;
+    width: $side-bar-width - $side-bar-padding * 2;
     display: flex;
     justify-content: space-between;
-    padding: 0 20px 0;
-    // position: fixed;
-    // top: 0;
+    padding: 0 $side-bar-padding 0;
+    height: $header-height;
+    font-size: 16px;
+    color: $side-bar-color1;
+    line-height: $header-height;
     &--left {
-      height: 88px;
-      text-decoration: none;
-      font-size: 16px;
-      color: #ffffff;
-      line-height: 88px;
       font-weight: bold;
     }
     &--right {
-      height: 88px;
-      display: flex;
       &-icon {
         text-decoration: none;
-        font-size: 16px;
-        color: #ffffff;
-        line-height: 82px;
+        color: $side-bar-color1;
+        margin-left: 2px;
       }
     }
   }
   &__contents {
-    height: calc(100vh - 88px - 15px);
-    width: 260px;
-    background-color: #2f3e51;
-    padding: 20px 20px 0;
-    // position: fixed;
-    // top: 88px;
+    height: calc(#{$contents-height} - #{$contents-padding});
+    width: $side-bar-width - $side-bar-padding * 2;
+    background-color: $side-bar-bgc2;
+    padding: $contents-padding $side-bar-padding 0;
   }
   &__group-list {
     list-style: none;
     text-decoration: none;
     font-weight: bold;
-    color: #ffffff;
+    color: $side-bar-color1;
     margin-bottom: 40px;
     display: block;
     &--name {
@@ -59,101 +83,82 @@
 }
 .main-chat {
   height: 100vh;
-  // width: calc(100vw - 300px);
   float: right;
   &__header {
-    width: calc(100vw - 300px - 40px * 2);
-    border-bottom: 1px solid #eeeeee;
-    // position: fixed;
-    // top: 0;
-    // left: 300px;
-    display: flex;
+    @include main-chat;
     justify-content: space-between;
-    padding: 0 40px 0;
+    border-bottom: 1px solid $main-chat-bgc1;
     &--group-name {
       font-size: 20px;
-      color: #333333;
+      color: $main-chat-color1;
       padding-top: 35px;
     }
-    &--group-menber {
+    &--group-member {
       font-size: 12px;
-      color: #999999;
+      color: $main-chat-color2;
       padding-top: 15px;
     }
     &--group-edit-btn {
-      margin-top: 28px;
-      display: block;
-      height: 40px;
-      padding-left: 20px;
-      padding-right: 20px;
-      border: 1px solid #38aef0;
-      color: #38aef0;
+      $height: 40px;
+      @include button($height);
+      margin-top: ($header-height - $height)/2;
     }
   }
   &__message {
-    width: calc(100vw - 300px - 40px * 2);
-    height: calc(100vh - 88px - 70px - 15px);
-    background-color: #fafafa;
-    // position: fixed;
-    // top: 88px;
-    // left: 300px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 40px 0;
+    @include main-chat;
+    height: calc(#{$contents-height} - #{$form-height});
+    background-color: $main-chat-bgc1;
     &--header {
+      $left-margin: 10px;
       margin-top: 40px;
       display: flex;
       &-user {
         font-size: 16px;
         font-style: bold;
-        color: #434a54;
+        color: $main-chat-color3;
       }
       &-date {
         font-size: 12px;
-        color: #999999;
-        margin-left: 10px;
+        color: $main-chat-color2;
+        margin-left: $left-margin;
       }
       &-message {
         font-size: 14px;
-        color: #434a54;
-        margin-left: 10px;
+        color: $main-chat-color3;
+        margin-left: $left-margin;
       }
     }
   }
   &__form {
-    width: calc(100vw - 300px - 40px * 2);
-    padding: 20px 40px;
-    background-color: #ddd;
-    // position: fixed;
-    // bottom: 0;
-    // left: 300px;
-    display: flex;
-    // justify-content: space-between;
+    @include main-chat;
+    padding: $form-padding $main-chat-padding;
+    background-color: $main-chat-bgc2;
     &--message {
-      height: 50px;
+      height: $form-height - $form-padding * 2;
       width: 100%;
       font-size: 16px;
-      color: #434a54;
-      line-height: 50px;
+      color: $main-chat-color3;
+      line-height: $form-height - $form-padding * 2;
       padding-left: 10px;
       border: none;
     }
     &--image {
+      $icon-size: 22px;
+      $margin: 10px;
       position: relative;
-      top: 14px;
-      right: 32px;
-      font-size: 22px;
-      margin-right: -32px;
+      top: ($form-height - $form-padding * 2 - $icon-size)/2;
+      right: $icon-size + $margin;
+      font-size: $icon-size;
+      margin-right: -($icon-size + $margin);
     }
     &--hidden {
       display: none;
     }
     &--send-btn {
-      background-color: #38aef0;
-      height: 50px;
-      width: 90px;
+      @include button($form-height - $form-padding * 2);
+      background-color: $btn-color1;
       border: none;
-      color: #ffffff;
+      color: $btn-color2;
       margin-left: 25px;
     }
   }
