@@ -1,23 +1,4 @@
-.side-bar
-  .side-bar__header
-    .side-bar__header--left
-      user name
-    .side-bar__header--right
-      = link_to "#", class: "side-bar__header--right-icon" do
-        = icon('fas', 'edit')
-      = link_to "#", class: "side-bar__header--right-icon" do
-        = icon('fas', 'cog')
-  .side-bar__contents
-    %ul
-      %li
-        = link_to "#", class: "side-bar__group-list" do
-          .side-bar__group-list--name
-            test1
-          .side-bar__group-list--message
-            まだメッセージはありません
-      %li
-        = link_to "#", class: "side-bar__group-list" do
-          .side-bar__group-list--name
-            test2
-          .side-bar__group-list--message
-            まだメッセージはありません
+.side_bar
+  = render "side_header"
+  = render "group_list"
+  

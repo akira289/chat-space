@@ -6,51 +6,52 @@
 @import "./mixin/mixin";
 
 .side-bar {
-  width: $side-bar-width;
   height: 100vh;
   float: left;
-  &__header {
-    background-color: $side-bar-bgc1;
-    width: $side-bar-width - $side-bar-padding * 2;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 $side-bar-padding 0;
-    height: $header-height;
-    font-size: 16px;
-    color: $side-bar-color1;
-    line-height: $header-height;
-    &--left {
-      font-weight: bold;
-    }
-    &--right {
-      &-icon {
-        text-decoration: none;
-        color: $side-bar-color1;
-        margin-left: 2px;
-      }
-    }
-  }
-  &__contents {
-    height: calc(#{$contents-height} - #{$contents-padding});
-    width: $side-bar-width - $side-bar-padding * 2;
-    background-color: $side-bar-bgc2;
-    padding: $contents-padding $side-bar-padding 0;
-  }
-  &__group-list {
-    list-style: none;
-    text-decoration: none;
+}
+.side_header {
+  width: $side_bar_width - $side_bar_padding * 2;
+  height: $header_height;
+  background-color: $side_header_bgc;
+  padding: 0 $side_bar_padding 0;
+  display: flex;
+  justify-content: space-between;
+  line-height: $header-height;
+  font-size: $side_header_font;
+  color: $side_bar_color;
+  &__left_content {
     font-weight: bold;
-    color: $side-bar-color1;
-    margin-bottom: 40px;
-    display: block;
-    &--name {
-      font-size: 15px;        
-    }
-    &--message {
-      font-size: 11px;
+  }
+  &__right_content {
+    &--icon {
+      text-decoration: none;
+      color: $side-bar-color;
+      margin-left: 2px;
     }
   }
 }
+.group_list {
+  height: calc(#{$contents_height} - #{$group_list_padding});
+  width: $side_bar_width - $side_bar_padding * 2;
+  background-color: $group_list_bgc;
+  padding: $group_list_padding $side_bar_padding 0;
+  list-style: none;
+  display: block;
+  &__link {
+    text-decoration: none;
+    color: $side_bar_color;
+  }
+  &__name {
+    font-size: $group_list_name_font;        
+    font-weight: bold;
+  }
+  &__message {
+    font-size: $group_list_message_font;
+    font-weight: bold;
+    margin: 5px 0 40px;
+  }
+}
+
 .main-chat {
   height: 100vh;
   float: right;
@@ -71,12 +72,12 @@
     &--group-edit-btn {
       $height: 40px;
       @include button($height);
-      margin-top: ($header-height - $height)/2;
+      margin-top: ($header_height - $height)/2;
     }
   }
   &__message {
     @include main-chat;
-    height: calc(#{$contents-height} - #{$form-height});
+    height: calc(#{$contents_height} - #{$form-height});
     background-color: $main-chat-bgc1;
     &--header {
       $left-margin: 10px;
