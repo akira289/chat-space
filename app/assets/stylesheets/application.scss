@@ -3,19 +3,8 @@
 @import "./font-awesome";
 
 @import "./config/variables";
+@import "./mixin/mixin";
 
-@mixin button($height) {
-  height: $height;
-  padding-left: 20px;
-  padding-right: 20px;
-  border: 1px solid $btn-color1;
-  color: $btn-color1;
-}
-@mixin main-chat {
-  width: calc(#{$main-chat-width} - #{$main-chat-padding} * 2);
-  padding: 0 $main-chat-padding 0;
-  display: flex;
-}
 .side-bar {
   width: $side-bar-width;
   height: 100vh;
