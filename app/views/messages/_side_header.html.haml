@@ -1,8 +1,8 @@
 .side_header
   .side_header__left_content
-    user name    
+    = current_user.name    
   .side_header__right_content
     = link_to "#", class: "side_header__right_content--icon" do
       = icon('fas', 'edit')
-    = link_to "#", class: "side_header__right_content--icon" do
+    = link_to edit_user_path(current_user), class: "side_header__right_content--icon" do
       = icon('fas', 'cog')
