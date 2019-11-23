@@ -8,6 +8,10 @@
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
           .field-label
+            = f.label :name
+          .field-input
+            = f.text_field :name, autofocus: true
+          .field-label
             = f.label :email
           .field-input
             = f.email_field :email, autofocus: true
