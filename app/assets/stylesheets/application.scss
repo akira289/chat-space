@@ -1,0 +1,135 @@
+@import "./reset";
+@import "font-awesome-sprockets";
+@import "./font-awesome";
+
+@import "./config/variables";
+@import "./mixin/mixin";
+
+.side_bar {
+  height: 100vh;
+  float: left;
+}
+.side_header {
+  width: $side_bar_width - $side_bar_padding * 2;
+  height: $header_height;
+  background-color: $side_header_bgc;
+  padding: 0 $side_bar_padding 0;
+  display: flex;
+  justify-content: space-between;
+  line-height: $header-height;
+  font-size: $side_header_font;
+  color: $side_bar_color;
+  &__left_content {
+    font-weight: bold;
+  }
+  &__right_content {
+    &--icon {
+      text-decoration: none;
+      color: $side-bar-color;
+      margin-left: 2px;
+    }
+  }
+}
+.group_list {
+  height: calc(#{$contents_height} - #{$group_list_padding});
+  width: $side_bar_width - $side_bar_padding * 2;
+  background-color: $group_list_bgc;
+  padding: $group_list_padding $side_bar_padding 0;
+  list-style: none;
+  display: block;
+  &__link {
+    text-decoration: none;
+    color: $side_bar_color;
+  }
+  &__name {
+    font-size: $group_list_name_font;        
+    font-weight: bold;
+  }
+  &__message {
+    font-size: $group_list_message_font;
+    font-weight: bold;
+    margin: 5px 0 40px;
+  }
+}
+
+.main {
+  &_chat {
+  height: 100vh;
+  float: right;
+  }
+  &_header {
+    @include main_chat;
+    justify-content: space-between;
+    border-bottom: 1px solid $main_header_border;
+    &__group {
+      &_name {
+      font-size: $main_group_name_font;
+      color: $main_dark_color;
+      padding-top: $main_group_name_padding;
+      }
+      &_member {
+      font-size: $main_member_font;
+      color: $main_light_color;
+      padding-top: $main_member_padding;
+      }
+    }
+    &__btn {
+      @include button($edit_btn_height);
+      margin-top: ($header_height - $edit_btn_height)/2;
+    }
+  }
+  &_message {
+    height: calc(#{$contents_height} - #{$form_height});
+    background-color: $main_message_bgc;
+    &__header {
+      @include main_chat;
+      padding-top: $main_message_padding;
+      &_user {
+        font-size: $main_user_font;
+        font-style: bold;
+        color: $main_mid_color;
+      }
+      &_date {
+        font-size: $main_date_font;
+        color: $main_light_color;
+        margin-left: $main_date_margin;
+      }
+    }
+    &__message {
+        font-size: $main_message_font;
+        color: $main_mid_color;
+        padding-left: $main_padding;
+    }
+  }
+  &_form {
+    @include main_chat;
+    padding: $form_padding $main_padding;
+    background-color: $form_bgc;
+    &__input {
+      height: $form_height - $form_padding * 2;
+      width: 100%;
+      font-size: $form_input_font;
+      color: $main_mid_color;
+      line-height: $form_height - $form_padding * 2;
+      padding-left: $form_input_padding;
+      border: none;
+    }
+    &__image {
+      font-size: $form_icon_size;
+      position: relative;
+      top: ($form_height - $form_padding * 2 - $form_icon_size)/2;
+      right: $form_icon_size + $form_icon_margin;
+      margin-right: -($form_icon_size + $form_icon_margin);
+      &--hidden {
+        display: none;
+      }
+    }
+    &__btn {
+      @include button($form_height - $form_padding * 2);
+      background-color: $btn_color1;
+      border: none;
+      color: $btn_color2;
+      margin-left: $form_send_btn_margin;
+    }
+  }
+}
