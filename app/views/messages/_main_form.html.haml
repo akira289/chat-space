@@ -1,6 +1,7 @@
 .main_form
-  %input{type: "textarea", placeholder: "type a message", class: "main_form__input"}
-  %label{class: "main_form__image"}
-    = icon('fas', 'image')
-    %input{type: "file", class: "main_form__image--hidden"}
-  %input{type: "submit", value: "Send", class: "main_form__btn"}
+  = form_for [@group, @message] do |f|
+    = f.text_field :body, placeholder: "type a message", class: "main_form__input"
+    = f.label :image, class: "main_form__image" do
+      = icon('fas', 'image')
+      = f.file_field :image, class: "main_form__image--hidden"
+    = f.submit "Send", class: "main_form__btn"
