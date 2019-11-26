@@ -8,6 +8,7 @@
           = message.created_at
       .main_message__message
         - if message.body
+          .main_message__message_body
           = message.body
         - if message.image
-          = image_tag message.image.to_s
+          = image_tag message.image.to_s, class: "main_message__message_image"
