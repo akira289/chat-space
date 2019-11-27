@@ -95,6 +95,8 @@ body::-webkit-scrollbar {
     }
     &__btn {
       @include button($edit_btn_height);
+      text-decoration: none;
+      line-height: $edit_btn_height;
       margin-top: ($header_height - $edit_btn_height)/2;
     }
   }
