@@ -1,14 +1,2 @@
 .main_message
-  - @messages.each do |message|   
-    .main_message__list
-      .main_message__header
-        .main_message__header_user
-          = message.user.name
-        .main_message__header_date
-          = message.created_at
-      .main_message__message
-        - if message.body
-          .main_message__message_body
-          = message.body
-        - if message.image
-          = image_tag message.image.to_s, class: "main_message__message_image"
+  = render @messages
