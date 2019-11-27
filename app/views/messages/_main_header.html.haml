@@ -6,4 +6,4 @@
       Member: 
       - @group.users.each do |user|
         = user.name
-  %input{type: "submit", value: "Edit", class: "main_header__btn"}
+  = link_to "Edit", edit_group_path(@group), class: "main_header__btn"
