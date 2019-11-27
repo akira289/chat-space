@@ -1,17 +1,2 @@
-%ul.main_message
-  %li.main_message__list
-    .main_message__header
-      .main_message__header_user
-        user1
-      .main_message__header_date
-        2019/11/17(Sun) 14:24:35
-    .main_message__message
-      まだメッセージはありません
-  %li.main_message__list
-    .main_message__header
-      .main_message__header_user
-        user2
-      .main_message__header_date
-        2019/11/17(Sun) 14:24:50
-    .main_message__message
-      まだメッセージはありません
+.main_message
+  = render @messages

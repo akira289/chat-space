@@ -9,9 +9,18 @@
 @import "./config/variables";
 @import "./mixin/mixin";
 
+body::-webkit-scrollbar {
+  display: none;
+}
+.notification {
+  width: 100vw;
+  z-index: 3;
+  position: fixed;
+}
 .side_bar {
   height: 100vh;
-  float: left;
+  position:fixed;
+  top: 0;
 }
 .side_header {
   width: $side_bar_width - $side_bar_padding * 2;
@@ -23,6 +32,7 @@
   line-height: $header-height;
   font-size: $side_header_font;
   color: $side_bar_color;
+  z-index: 1;
   &__left_content {
     font-weight: bold;
   }
@@ -60,11 +70,17 @@
   &_chat {
   height: 100vh;
   float: right;
+  background-color: $main_message_bgc;
   }
   &_header {
     @include main_chat;
     justify-content: space-between;
     border-bottom: 1px solid $main_header_border;
+    position: fixed;
+    top: 0;
+    left: $side_bar_width;
+    background-color: white;
+    z-index: 1;
     &__group {
       &_name {
       font-size: $main_group_name_font;
@@ -83,8 +99,10 @@
     }
   }
   &_message {
-    height: calc(#{$contents_height} - #{$form_height});
+    // height: calc(#{$contents_height} - #{$form_height});
     background-color: $main_message_bgc;
+    margin-top: $header-height;
+    margin-bottom: $form_height;
     &__header {
       @include main_chat;
       padding-top: $main_message_padding;
@@ -103,27 +121,39 @@
         font-size: $main_message_font;
         color: $main_mid_color;
         padding-left: $main_padding;
+        &_image {
+          width: 200px;
+          display: block;
+        }
     }
   }
   &_form {
     @include main_chat;
     padding: $form_padding $main_padding;
     background-color: $form_bgc;
+    position: fixed;
+    bottom: 0;
+    left: $side_bar_width;
     &__input {
-      height: $form_height - $form_padding * 2;
-      width: 100%;
-      font-size: $form_input_font;
-      color: $main_mid_color;
-      line-height: $form_height - $form_padding * 2;
-      padding-left: $form_input_padding;
-      border: none;
+      &_area {
+        height: $form_height - $form_padding * 2;
+        display: flex;
+        position: relative;
+      }
+      &_text {
+        padding-left: $form_input_padding;
+        width: calc(100vw - #{$side_bar_width} - #{$form_input_padding} - #{$form_send_btn_width} - #{$form_send_btn_margin} - #{$main_message_padding} * 2);
+        font-size: $form_input_font;
+        color: $main_mid_color;
+        line-height: $form_height - $form_padding * 2;
+        border: none;
+      }
     }
-    &__image {
+    &__icon {
       font-size: $form_icon_size;
-      position: relative;
+      position: absolute;
+      right: $form_send_btn_width + $form_send_btn_margin + $form_icon_margin;
       top: ($form_height - $form_padding * 2 - $form_icon_size)/2;
-      right: $form_icon_size + $form_icon_margin;
-      margin-right: -($form_icon_size + $form_icon_margin);
       &--hidden {
         display: none;
       }
@@ -134,6 +164,8 @@
       border: none;
       color: $btn_color2;
       margin-left: $form_send_btn_margin;
+      width: $form_send_btn_width;
+      float: right;
     }
   }
 }
