@@ -1,6 +1,6 @@
 .group_list
   - current_user.groups.each do |group|
-    = link_to "#", class: "group_list__link" do
+    = link_to group_messages_path(group), class: "group_list__link" do
       .group_list__name
         = group.name
       .group_list__message
