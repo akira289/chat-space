@@ -1,7 +1,9 @@
 .main_header
   .main_header__group
     .main_header__group_name
-      group name
+      = @group.name
     .main_header__group_member
-      Member: user-1 user-2
+      Member: 
+      - @group.users.each do |user|
+        = user.name
   %input{type: "submit", value: "Edit", class: "main_header__btn"}
