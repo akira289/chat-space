@@ -1,5 +1,20 @@
 $(function(){
+  function formatDate(strDate){
+    var weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var format = 'YYYY/MM/DD(WW) hh:mm:ss'
+    var date = new Date(strDate);
+
+    format = format.replace(/YYYY/g, date.getFullYear());
+    format = format.replace(/MM/g, ('0' + (date.getMonth() + 1)).slice(-2));
+    format = format.replace(/DD/g, ('0' + (date.getDate())).slice(-2));
+    format = format.replace(/WW/g, weekday[date.getDay()]);
+    format = format.replace(/hh/g, ('0' + date.getHours()).slice(-2));
+    format = format.replace(/mm/g, ('0' + date.getMinutes()).slice(-2));
+    format = format.replace(/ss/g, ('0' + date.getSeconds()).slice(-2));
+    return format;
+  }
   function buildHTML(message){
+    var formated_date = formatDate(message.created_at);
     if (message.image.url) {
       var html =  `<div class="main_message__list">
                     <div class="main_message__header">
@@ -7,7 +22,7 @@ $(function(){
                       ${message.user_name}
                       </div>
                       <div class="main_message__header_date">
-                      ${message.created_at}
+                      ${formated_date}
                       </div>
                     </div>
                     <div class="main_message__message">
@@ -23,7 +38,7 @@ $(function(){
                       ${message.user_name}
                       </div>
                       <div class="main_message__header_date">
-                      ${message.created_at}
+                      ${formated_date}
                       </div>
                     </div>
                     <div class="main_message__message">
