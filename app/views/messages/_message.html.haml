@@ -3,7 +3,7 @@
     .main_message__header_user
       = message.user.name
     .main_message__header_date
-      = message.created_at
+      = l(message.created_at)
   .main_message__message
     - if message.body
       .main_message__message_body

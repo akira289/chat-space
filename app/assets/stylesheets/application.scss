@@ -101,10 +101,11 @@ body::-webkit-scrollbar {
     }
   }
   &_message {
-    // height: calc(#{$contents_height} - #{$form_height});
+    height: calc(#{$contents_height} - #{$form_height});
     background-color: $main_message_bgc;
     margin-top: $header-height;
     margin-bottom: $form_height;
+    overflow: scroll;
     &__header {
       @include main_chat;
       padding-top: $main_message_padding;
