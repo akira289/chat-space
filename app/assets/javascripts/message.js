@@ -19,7 +19,7 @@ $(function(){
     if (message.image.url){
       image_html = `<image class="main_message__message_image" src="${message.image.url}"></image>`;
     }
-    var html =  `<div class="main_message__list">
+    var html =  `<div class="main_message__list" data-message-id="${message.id}">
                   <div class="main_message__header">
                     <div class="main_message__header_user">
                     ${message.user_name}
