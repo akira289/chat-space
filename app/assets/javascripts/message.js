@@ -72,7 +72,11 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages){
-      console.log("success");
+      var insertHTML ='';
+      $.each(messages, function(i, message){
+        insertHTML += buildeHTML(message);
+      });
+      $('.main_message').append(insertHTML)
     })
     .fail(function(){
       console.log("error");
