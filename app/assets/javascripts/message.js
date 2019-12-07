@@ -74,12 +74,14 @@ $(function(){
     .done(function(messages){
       var insertHTML ='';
       $.each(messages, function(i, message){
-        insertHTML += buildeHTML(message);
+        insertHTML += buildHTML(message);
       });
       $('.main_message').append(insertHTML)
+      console.log("success");
     })
     .fail(function(){
       console.log("error");
     })
   };
+  setInterval(reloadMessages, 7000);
 });
