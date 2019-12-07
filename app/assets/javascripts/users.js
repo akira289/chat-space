@@ -56,4 +56,7 @@ $(function(){
     addSelectUser(user_id, user_name);
     addMember(user_id);
   });
+  $("#chat-group-users").on('click', ".user-search-remove", function(){
+    $(this).parent().remove();
+  });
 });
