@@ -61,7 +61,7 @@ $(function(){
     })
   });
   var reloadMessages = function(){
-    var message_ids = $('div.main_message__list').map(function(){
+    var message_ids = $('.main_message__list').map(function(){
       return $(this).data('message-id');
     });
     var last_message_id = Math.max.apply(null, message_ids);
