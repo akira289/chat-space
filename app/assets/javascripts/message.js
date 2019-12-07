@@ -77,11 +77,13 @@ $(function(){
         insertHTML += buildHTML(message);
       });
       $('.main_message').append(insertHTML)
-      console.log("success");
+      $('.main_message').animate({ scrollTop: $('.main_message')[0].scrollHeight});
     })
     .fail(function(){
-      console.log("error");
+      alert("自動更新に失敗しました");
     })
   };
-  setInterval(reloadMessages, 7000);
+  if ($(".main_message").length){
+    setInterval(reloadMessages, 7000);
+  }
 });
