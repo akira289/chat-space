@@ -27,11 +27,15 @@ $(function(){
   }
   $("#user-search-field").on("keyup", function(){
     let input = $("#user-search-field").val();
+    let addIds = [];
+    $("input[name='group[user_ids][]'").map(function(){
+      addIds.push($(this).val());
+    });
     $.ajax({
       type: "GET",
       url: "/users",
       dataType: 'json',
-      data: {keyword: input}
+      data: {keyword: input, addIds: addIds}
     })
     .done(function(users){
       $("#user-search-result").empty();
