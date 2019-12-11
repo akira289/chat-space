@@ -9,7 +9,7 @@
 @import "./config/variables";
 @import "./mixin/mixin";
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }
 .notification {
@@ -84,29 +84,29 @@ body::-webkit-scrollbar {
         font-size: $main_group_name_font;
         color: $main_dark_color;
       padding-top: $main_group_name_padding;
+      }
+      &_member {
+        font-size: $main_member_font;
+        color: $main_light_color;
+        padding-top: $main_member_padding;
+      }
     }
-    &_member {
-      font-size: $main_member_font;
-      color: $main_light_color;
-      padding-top: $main_member_padding;
+    &__btn {
+      @include button($edit_btn_height);
+      text-decoration: none;
+      line-height: $edit_btn_height;
+      margin-top: ($header_height - $edit_btn_height)/2;
     }
   }
-  &__btn {
-    @include button($edit_btn_height);
-    text-decoration: none;
-    line-height: $edit_btn_height;
-    margin-top: ($header_height - $edit_btn_height)/2;
-  }
-}
-&_message {
-  height: calc(#{$contents_height} - #{$form_height});
-  width: calc(100vw - #{$side_bar_width});
-  background-color: $main_message_bgc;
-  overflow: scroll;
-  box-sizing: border-box;
-  &__header {
-    @include main_chat;
-      padding-top: $main_message_padding;
+  &_message {
+    height: calc(#{$contents_height} - #{$form_height});
+    width: calc(100vw - #{$side_bar_width});
+    background-color: $main_message_bgc;
+    overflow: scroll;
+    box-sizing: border-box;
+    &__header {
+      @include main_chat;
+        padding-top: $main_message_padding;
       &_user {
         font-size: $main_user_font;
         font-style: bold;
@@ -122,10 +122,11 @@ body::-webkit-scrollbar {
         font-size: $main_message_font;
         color: $main_mid_color;
         padding-left: $main_padding;
-        &_image {
-          width: 200px;
-          display: block;
-        }
+        padding-bottom: $main_message_padding;
+      &_image {
+        width: 200px;
+        display: block;
+      }
     }
   }
   &_form {
