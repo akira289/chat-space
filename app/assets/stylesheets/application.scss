@@ -15,12 +15,12 @@ body::-webkit-scrollbar {
 .notification {
   width: 100vw;
   z-index: 3;
-  position: fixed;
+}
+.wrapper {
+  display: flex;
 }
 .side_bar {
   height: 100vh;
-  position:fixed;
-  top: 0;
 }
 .side_header {
   width: $side_bar_width - $side_bar_padding * 2;
@@ -71,43 +71,41 @@ body::-webkit-scrollbar {
   height: 100vh;
   float: right;
   background-color: $main_message_bgc;
+  width: calc(100vw - #{$side_bar_width});
   }
   &_header {
     @include main_chat;
     justify-content: space-between;
     border-bottom: 1px solid $main_header_border;
-    position: fixed;
-    top: 0;
-    left: $side_bar_width;
     background-color: white;
     z-index: 1;
     &__group {
       &_name {
-      font-size: $main_group_name_font;
-      color: $main_dark_color;
+        font-size: $main_group_name_font;
+        color: $main_dark_color;
       padding-top: $main_group_name_padding;
-      }
-      &_member {
+    }
+    &_member {
       font-size: $main_member_font;
       color: $main_light_color;
       padding-top: $main_member_padding;
-      }
-    }
-    &__btn {
-      @include button($edit_btn_height);
-      text-decoration: none;
-      line-height: $edit_btn_height;
-      margin-top: ($header_height - $edit_btn_height)/2;
     }
   }
-  &_message {
-    height: calc(#{$contents_height} - #{$form_height});
-    background-color: $main_message_bgc;
-    margin-top: $header-height;
-    margin-bottom: $form_height;
-    overflow: scroll;
-    &__header {
-      @include main_chat;
+  &__btn {
+    @include button($edit_btn_height);
+    text-decoration: none;
+    line-height: $edit_btn_height;
+    margin-top: ($header_height - $edit_btn_height)/2;
+  }
+}
+&_message {
+  height: calc(#{$contents_height} - #{$form_height});
+  width: calc(100vw - #{$side_bar_width});
+  background-color: $main_message_bgc;
+  overflow: scroll;
+  box-sizing: border-box;
+  &__header {
+    @include main_chat;
       padding-top: $main_message_padding;
       &_user {
         font-size: $main_user_font;
@@ -134,9 +132,6 @@ body::-webkit-scrollbar {
     @include main_chat;
     padding: $form_padding $main_padding;
     background-color: $form_bgc;
-    position: fixed;
-    bottom: 0;
-    left: $side_bar_width;
     &__input {
       &_area {
         height: $form_height - $form_padding * 2;
